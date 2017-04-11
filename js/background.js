@@ -267,8 +267,8 @@ function build_apps_list(apps_arr) {
 
   // save default custom apps' states upon first launch
   if ("undefined" == typeof custom_apps["webstore"]) {
-    custom_apps = {"contacts":true,"webstore":true,"yahoo-mail":true,"hotmail":true,"facebook":true,"twitter":true};
-    stored.custom_apps = JSON.stringify(custom_apps);
+    // custom_apps = {"contacts":true,"webstore":true,"yahoo-mail":true,"hotmail":true,"facebook":true,"twitter":true};
+    // stored.custom_apps = JSON.stringify(custom_apps);
   }
 
   if (apps_arr) {
@@ -396,7 +396,7 @@ if (stored.icons_order) {
 
 
 chrome.management.getAll(function(array) {
-    build_apps_list(array);
+    // build_apps_list(array);
     include_3rd_party_services();
 });
 
