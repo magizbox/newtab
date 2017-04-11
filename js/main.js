@@ -821,6 +821,7 @@ function on_focus_click() {
   settings.focus_mode = !settings.focus_mode;
   save_options();
   update_focus_button_title();
+  focus_task();
   if (settings.focus_mode) {
     document.documentElement.classList.add('focus');
     refresh_date();
