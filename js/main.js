@@ -769,10 +769,10 @@ byId("time").onclick = function(e) {
   save_options();
 }
 
-byId("clear-notifications").onclick = function(e) {
-  byId('notifications').innerHTML = '';
-  stored.notifications = '';
-}
+// byId("clear-notifications").onclick = function(e) {
+//   byId('notifications').innerHTML = '';
+//   stored.notifications = '';
+// }
 
 function save_options() {
   stored.settings = JSON.stringify(settings);

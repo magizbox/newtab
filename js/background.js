@@ -35,7 +35,7 @@ function save_options() {
   } catch(e) {
     /// TODO: log error
     // throw new Error('...');
-  } 
+  }
 }
 
 // stored.user_app_ids list of user app IDs
@@ -159,8 +159,8 @@ if ("undefined" != typeof settings.showClear) {
   settings = default_settings;
 }
 
-try { 
-  stored.settings = JSON.stringify(settings); 
+try {
+  stored.settings = JSON.stringify(settings);
 } catch (e) {
   //throw new Error('problem with stringify settings');
 }
@@ -272,69 +272,79 @@ function build_apps_list(apps_arr) {
   }
 
   if (apps_arr) {
-    if (custom_apps["contacts"])
-    apps_arr.unshift({
-      name: "Contacts",
-      id:   "contacts",
-      icons: [{size: 128, url: "icons/app/contacts-128.png"}],
-      appLaunchUrl: "https://www.google.com/contacts/#contacts",
-      isApp:   true,
-      enabled: custom_apps["contacts"]
-    });
+  //   apps_arr.unshift({
+  //     name: "Contacts",
+  //     id:   "contacts",
+  //     icons: [{size: 128, url: "icons/app/contacts-128.png"}],
+  //     appLaunchUrl: "https://www.google.com/contacts/#contacts",
+  //     isApp:   true,
+  //     enabled: custom_apps["contacts"]
+  //   });
 
-    if (custom_apps["webstore"])
-    apps_arr.unshift({
-      name: "Store",
-      id:   "webstore",
-      icons: [{size: 128, url: "chrome://extension-icon/ahfgeienlihckogmohjhadlkjgocpleb/128/0"}],
-      appLaunchUrl: "https://chrome.google.com/webstore/category/popular",
-      isApp:   true,
-      enabled: custom_apps["webstore"]
-    });
+    // if (custom_apps["contacts"])
+    // apps_arr.unshift({
+    //   name: "Contacts",
+    //   id:   "contacts",
+    //   icons: [{size: 128, url: "icons/app/contacts-128.png"}],
+    //   appLaunchUrl: "https://www.google.com/contacts/#contacts",
+    //   isApp:   true,
+    //   enabled: custom_apps["contacts"]
+    // });
+    //
+    // if (custom_apps["webstore"])
+    // apps_arr.unshift({
+    //   name: "Store",
+    //   id:   "webstore",
+    //   icons: [{size: 128, url: "chrome://extension-icon/ahfgeienlihckogmohjhadlkjgocpleb/128/0"}],
+    //   appLaunchUrl: "https://chrome.google.com/webstore/category/popular",
+    //   isApp:   true,
+    //   enabled: custom_apps["webstore"]
+    // });
 
-    if (custom_apps["yahoo-mail"])
-    apps_arr.push({
-      name: "Yahoo! Mail",
-      id:   "yahoo-mail",
-      icons: [{size: 128, url: "icons/app/yahoo-mail-128.png"}],
-      appLaunchUrl: "http://us.mg40.mail.yahoo.com/neo/launch?.rand=" + (+new Date),
-      isApp:   true,
-      enabled: custom_apps["yahoo-mail"]
-    });
+    // if (custom_apps["yahoo-mail"])
+    // apps_arr.push({
+    //   name: "Yahoo! Mail",
+    //   id:   "yahoo-mail",
+    //   icons: [{size: 128, url: "icons/app/yahoo-mail-128.png"}],
+    //   appLaunchUrl: "http://us.mg40.mail.yahoo.com/neo/launch?.rand=" + (+new Date),
+    //   isApp:   true,
+    //   enabled: custom_apps["yahoo-mail"]
+    // });
+    //
+    // if (custom_apps["hotmail"])
+    // apps_arr.push({
+    //   name: "Hotmail",
+    //   id:   "hotmail",
+    //   icons: [{size: 128, url: "icons/app/hotmail-128.png"}],
+    //   appLaunchUrl: "http://mail.live.com/default.aspx?rru=inbox", /// http vs https
+    //   optionsUrl: "https://mail.live.com/P.mvc#!/mail/options.aspx",
+    //   isApp:   true,
+    //   enabled: custom_apps["hotmail"]
+    // });
 
-    if (custom_apps["hotmail"])
-    apps_arr.push({
-      name: "Hotmail",
-      id:   "hotmail",
-      icons: [{size: 128, url: "icons/app/hotmail-128.png"}],
-      appLaunchUrl: "http://mail.live.com/default.aspx?rru=inbox", /// http vs https
-      optionsUrl: "https://mail.live.com/P.mvc#!/mail/options.aspx",
-      isApp:   true,
-      enabled: custom_apps["hotmail"]
-    });
+    // if (custom_apps["facebook"])
+    // apps_arr.push({
+    //   name: "Facebook",
+    //   id:   "facebook",
+    //   icons: [{size: 128, url: "icons/app/facebook-128.png"}],
+    //   appLaunchUrl: "https://www.facebook.com/",
+    //   optionsUrl: "https://www.facebook.com/settings",
+    //   isApp:   true,
+    //   enabled: custom_apps["facebook"]
+    // });
+    //
+    // if (custom_apps["twitter"])
+    // apps_arr.push({
+    //   name: "Twitter",
+    //   id:   "twitter",
+    //   icons: [{size: 128, url: "icons/app/twitter-128.png"}],
+    //   appLaunchUrl: "https://twitter.com/",
+    //   optionsUrl: "https://twitter.com/settings/account",
+    //   isApp:   true,
+    //   enabled: custom_apps["twitter"]
+    // });
 
-    if (custom_apps["facebook"])
-    apps_arr.push({
-      name: "Facebook",
-      id:   "facebook",
-      icons: [{size: 128, url: "icons/app/facebook-128.png"}],
-      appLaunchUrl: "https://www.facebook.com/",
-      optionsUrl: "https://www.facebook.com/settings",
-      isApp:   true,
-      enabled: custom_apps["facebook"]
-    });
-
-    if (custom_apps["twitter"])
-    apps_arr.push({
-      name: "Twitter",
-      id:   "twitter",
-      icons: [{size: 128, url: "icons/app/twitter-128.png"}],
-      appLaunchUrl: "https://twitter.com/",
-      optionsUrl: "https://twitter.com/settings/account",
-      isApp:   true,
-      enabled: custom_apps["twitter"]
-    });
-
+    apps_arr = Configuration.apps;
   }
 
   var in_ordered = {};
@@ -375,12 +385,12 @@ function build_apps_list(apps_arr) {
   // user apps data
   for (var j = 0; j < ordered.length; j++) {
     var id = ordered[j];
-    if (id.indexOf('user_app') != 0) 
+    if (id.indexOf('user_app') != 0)
       continue;
-    if (!stored[id]) 
+    if (!stored[id])
       continue;
-    try { 
-      apps[id] = JSON.parse(stored[id]); 
+    try {
+      apps[id] = JSON.parse(stored[id]);
     } catch(e) {
         logError(new Error('ERROR: stored app has invalid JSON: ' + id));
     }
@@ -396,8 +406,8 @@ if (stored.icons_order) {
 
 
 chrome.management.getAll(function(array) {
-    // build_apps_list(array);
-    include_3rd_party_services();
+    build_apps_list(array);
+    // include_3rd_party_services();
 });
 
 
@@ -496,7 +506,7 @@ function include_3rd_party_services() {
         });
       };
       include_js("https://apis.google.com/js/client.js?onload=GCAL_LOADED");
-    //}  
+    //}
 }
 
 // temporary force update
@@ -505,7 +515,7 @@ if (hotmail_html && hotmail_html.indexOf('col002') > -1) {
   delete stored.app_html_hotmail;
 }
 
-if (chrome.runtime.setUninstallURL && !window.DEV) 
+if (chrome.runtime.setUninstallURL && !window.DEV)
   chrome.runtime.setUninstallURL("http://www.homenewtab.com/farewell.html");
 
 chrome.extension.onMessage.addListener(
@@ -515,9 +525,9 @@ chrome.extension.onMessage.addListener(
       ga.apply(window, message.arguments);
     } else if (message.name == "pageview") {
       ga('set',  'dimension1', settings.search_bar);
-      ga('set',  'dimension2', settings.search_bar ? settings.search_fullscreen : -1); 
-      ga('set',  'dimension4', isMac ? stored.SS_discrete_mouse_wheel == 'true' : -1); 
-      ga('set',  'dimension5', localStorage.GEO_country_code); 
+      ga('set',  'dimension2', settings.search_bar ? settings.search_fullscreen : -1);
+      ga('set',  'dimension4', isMac ? stored.SS_discrete_mouse_wheel == 'true' : -1);
+      ga('set',  'dimension5', localStorage.GEO_country_code);
       ga('send', 'pageview', { page: message.page || 'main.html' });
     } else if (message.name == "search-event") {
       ga('send', 'event', 'search', 'click');
@@ -576,7 +586,7 @@ function checkInstallConversion() {
   var url = "https://chrome.google.com/webstore/"; // detail/ehhkfhegcenpfoanmgfpfhnmdmflkbgk
   //"73091649.1441531513.921.486.utmcsr=sscr|utmccn=sscr-cmp|utmcmd=(not%20set)"
   var map = {'utmcsr': 'source', 'utmccn': 'name', 'utmcmd': 'medium'};
-  chrome.cookies.get({ url: url, name: "__utmz" }, function (cookie) { 
+  chrome.cookies.get({ url: url, name: "__utmz" }, function (cookie) {
     if (!cookie) return;
     cookie = cookie.value;
     cookie = cookie.slice(cookie.indexOf('utm'));
